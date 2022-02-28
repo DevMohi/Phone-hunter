@@ -86,25 +86,53 @@ const displayDetails = data => {
     const div = document.createElement('div');
     div.classList.add('col')
     div.innerHTML = `
-            <div class="card w-100 mx-auto border-0">
-                <img src="${data.image}" class="card-img-top w-50 mx-auto" alt="...">
-                <div class="card-body text-center mx-auto">
-                    <h5 class="card-title">${data.name}</h5>
-                    <h5 class="card-title">${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5>
-                    <h2>Others</h2>
-                    <h5>WLAN : ${data.others?.WLAN ? data.others.WLAN : "Not Found"} </h5>
-                    <h5>BLUETOOTH : ${data.others?.Bluetooth ? data.others.Bluetooth : "Not Found"}</h5>
-                    <h5>GPS :${data.others?.GPS ? data.others.GPS : "Not Found"} </h5>
-                    <h5>NFC :${data.others?.NFC ? data.others.NFC : "Not Found"} </h5>
-                    <h5>Radio :${data.others?.Radio ? data.others.Radio : "Not Found"} </h5>
-                    <h5>USB : ${data.others?.USB ? data.others.USB : "Not Found"}</h5>
- 
+            <div class="card mb-3 py-3">
+                <div class="row g-0">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <img src="${data.image}" class="" alt="...">
+                </div>
 
-                    <h5>Sensors</h5>
-                    <ul>${ul.innerHTML}</ul>
+                <div class="col-md-8 d-flex justify-content-center">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.name}</h5>
+                        <h5>${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5>
+                        
+                        <h1>Main Features</h1>
+                        <h5>storage:${data.mainFeatures.storage} </h5>
+                        <h5>displaySize:${data.mainFeatures.displaySize} </h5>
+                        <h5>chipSet:${data.mainFeatures.chipSet} </h5>
+                        <h5>memory:${data.mainFeatures.memory} </h5>
+                        <div class="dropdown py-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Sensor
+                            </button>
+                            <ul class="dropdown-menu ps-2 pe-2" aria-labelledby="dropdownMenuButton1">
+                                ${ul.innerHTML}
+                            </ul>
+                        </div>
+                        <div class="dropdown py-2 ">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Others
+                            </button>
+                            <ul class="dropdown-menu ps-2 pe-2" aria-labelledby="dropdownMenuButton1 ">
+                                <li>WLAN : ${data.others?.WLAN ? data.others.WLAN : "Not Found"} </li>
+                                <li>BLUETOOTH : ${data.others?.Bluetooth ? data.others.Bluetooth : "Not Found"}</li>
+                                <li>GPS :${data.others?.GPS ? data.others.GPS : "Not Found"} </li>
+                                <li>NFC :${data.others?.NFC ? data.others.NFC : "Not Found"} </li>
+                                <li>Radio :${data.others?.Radio ? data.others.Radio : "Not Found"} </li>
+                                <li>USB : ${data.others?.USB ? data.others.USB : "Not Found"}</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-    `
+        </div>
+
+    
+        `
 
     parent.appendChild(div)
 }
