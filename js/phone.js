@@ -11,6 +11,7 @@ const loadData = () => {
     fetch(url)
         .then(res => res.json())
         .then(phone => displayData(phone.data))
+
 }
 
 const displayData = data => {
@@ -25,7 +26,8 @@ const displayData = data => {
     }
 
     else {
-        data.forEach(phone => {
+        data.slice(0,20).forEach(phone => {
+            
             const div = document.createElement('div')
             div.classList.add('col')
             div.innerHTML = `
@@ -36,7 +38,7 @@ const displayData = data => {
                 <h5 class="card-title text-center">${phone.phone_name}</h5>
 
                 <div class="d-flex justify-content-center border-none">
-                    <button class="border border-dark btn-danger py-1 px-2">Details</button>
+                    <button class="border btn-danger py-2 px-3 rounded">Details</button>
                 </div>
 
                 </div>
@@ -50,10 +52,12 @@ const displayData = data => {
 
 }
 
+
+// For showing result 
 const resultShow = displayStyle => {
     document.getElementById('result').style.display = displayStyle
 }
-
+// For spinner 
 const spinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle
 }
