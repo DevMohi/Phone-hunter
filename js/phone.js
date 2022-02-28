@@ -100,7 +100,7 @@ const displayDetails = data => {
                 </div>
 
                 <div class="col-md-8 py-2">
-                    <div class="displayCard">
+                    <div class="displayCard py-2">
                         <h5 class="card-title">${data.name}</h5>
                         <h5>${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5> <br>
                         
