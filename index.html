@@ -12,11 +12,28 @@
 </head>
 
 <body>
-    <header>
-        <h1>Gadget View</h1>
+
+    <!-- header start  -->
+    <header class="py-2">
+        <h1 class="text-center">Gadget View</h1>
     </header>
 
-    <main>
+
+
+    <main class="container">
+        <!-- Search section  -->
+        <section>
+            <div class="input-group mb-3">
+                <input id="inputText" type="text" class="form-control" placeholder="Search phone"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text btn-success" onclick="loadData()">Search</span>
+            </div>
+        </section>
+
+        <!-- Data displaying section  -->
+        <div class="row row-cols-1 row-cols-lg-3 g-4" id="displaySection">
+            <p class="text-center mx-auto ">No results found 😥</p>
+        </div>
 
     </main>
 
@@ -30,3 +47,5 @@
 </body>
 
 </html>
+
+
