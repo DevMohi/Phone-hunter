@@ -3,6 +3,7 @@ const loadData = () => {
     // getting input 
     const inputText = document.getElementById('inputText').value;
     document.getElementById('displaySection').textContent = '';
+    document.getElementById('detailsSection').textContent = '';
     spinner('block')
 
     // fetching data 
@@ -31,8 +32,8 @@ const displayData = data => {
             const div = document.createElement('div')
             div.classList.add('col')
             div.innerHTML = `
-            <div class="card w-75 mx-auto pt-3 rounded">
-                <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="no image found">
+            <div class="card w-75 mx-auto pt-3 rounded border-0">
+                <img src="${phone.image}" class="card-img-top w-50 mx-auto " alt="no image found">
                 <div class="card-body">
                 <h5 class="card-title text-center">${phone.brand}</h5>
                 <h5 class="card-title text-center">${phone.phone_name}</h5>
@@ -65,15 +66,16 @@ const loadDetail = id => {
 const displayDetails = data => {
     console.log(data)
     const parent = document.getElementById('detailsSection')
+    parent.textContent = ''
 
     const div = document.createElement('div');
     div.classList.add('col')
     div.innerHTML = `
-            <div class="card w-100 mx-auto">
+            <div class="card w-100 mx-auto border-0">
                 <img src="${data.image}" class="card-img-top w-50 mx-auto" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${data.name}</h5>
-                    <h5 class="card-title">${data.releaseDate}</h5>
+                    <h5 class="card-title">${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5>
 
  
                 </div>
