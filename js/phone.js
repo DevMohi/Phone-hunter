@@ -7,7 +7,9 @@ const loadData = () => {
     spinner('block')
 
     // fetching data 
+
     url = `https://openapi.programming-hero.com/api/phones?search=${inputText}`
+
 
     fetch(url)
         .then(res => res.json())
@@ -55,6 +57,7 @@ const displayData = data => {
 
 // getting the id and loading it 
 const loadDetail = id => {
+
     url = `https://openapi.programming-hero.com/api/phone/${id}`
 
     fetch(url)
@@ -64,23 +67,45 @@ const loadDetail = id => {
 
 // showing details in ui 
 const displayDetails = data => {
+
     console.log(data)
     const parent = document.getElementById('detailsSection')
     parent.textContent = ''
+
+    const sensors = data.mainFeatures.sensors
+
+    const ul = document.createElement('ul')
+    for (const sensor of sensors) {
+        const li = document.createElement('li')
+        li.innerText = sensor;
+        console.log(sensor);
+        ul.appendChild(li)
+    }
+
 
     const div = document.createElement('div');
     div.classList.add('col')
     div.innerHTML = `
             <div class="card w-100 mx-auto border-0">
                 <img src="${data.image}" class="card-img-top w-50 mx-auto" alt="...">
-                <div class="card-body">
+                <div class="card-body text-center mx-auto">
                     <h5 class="card-title">${data.name}</h5>
                     <h5 class="card-title">${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5>
-
+                    <h2>Others</h2>
+                    <h5>WLAN : ${data.others?.WLAN ? data.others.WLAN : "Not Found"} </h5>
+                    <h5>BLUETOOTH : ${data.others?.Bluetooth ? data.others.Bluetooth : "Not Found"}</h5>
+                    <h5>GPS :${data.others?.GPS ? data.others.GPS : "Not Found"} </h5>
+                    <h5>NFC :${data.others?.NFC ? data.others.NFC : "Not Found"} </h5>
+                    <h5>Radio :${data.others?.Radio ? data.others.Radio : "Not Found"} </h5>
+                    <h5>USB : ${data.others?.USB ? data.others.USB : "Not Found"}</h5>
  
+
+                    <h5>Sensors</h5>
+                    <ul>${ul.innerHTML}</ul>
                 </div>
             </div>
     `
+
     parent.appendChild(div)
 }
 
