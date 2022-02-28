@@ -1,7 +1,15 @@
-.no-result{
-    display: none;
+.no-result {
+  display: none;
 }
 
-.spinner-hide{
-    display: none;
+.spinner-hide {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .displayCard{
+        text-align: center;
+        
+  }
+
 }

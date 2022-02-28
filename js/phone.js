@@ -1,19 +1,26 @@
 const loadData = () => {
-
     // getting input 
     const inputText = document.getElementById('inputText').value;
     document.getElementById('displaySection').textContent = '';
     document.getElementById('detailsSection').textContent = '';
-    spinner('block')
+    spinner('block');
 
     // fetching data 
+    if (inputText == "") {
+        spinner('none')
+        resultShow('block')
+    }
 
-    url = `https://openapi.programming-hero.com/api/phones?search=${inputText}`
+    else {
+        url = `https://openapi.programming-hero.com/api/phones?search=${inputText}`
 
 
-    fetch(url)
-        .then(res => res.json())
-        .then(phone => displayData(phone.data))
+        fetch(url)
+            .then(res => res.json())
+            .then(phone => displayData(phone.data))
+    }
+
+
 
 }
 
@@ -23,9 +30,9 @@ const displayData = data => {
     parent.textContent = '';
 
     if (data.length == 0) {
-        console.log('error')
-        resultShow('block')
-        spinner('none')
+        console.log('error');
+        resultShow('block');
+        spinner('none');
     }
 
     else {
@@ -49,8 +56,8 @@ const displayData = data => {
         `
             parent.appendChild(div);
         })
-        spinner('none')
-        resultShow('none')
+        spinner('none');
+        resultShow('none');
     }
 
 }
@@ -68,18 +75,18 @@ const loadDetail = id => {
 // showing details in ui 
 const displayDetails = data => {
 
-    console.log(data)
-    const parent = document.getElementById('detailsSection')
-    parent.textContent = ''
+    console.log(data);
+    const parent = document.getElementById('detailsSection');
+    parent.textContent = '';
 
-    const sensors = data.mainFeatures.sensors
+    const sensors = data.mainFeatures.sensors;
 
     const ul = document.createElement('ul')
     for (const sensor of sensors) {
         const li = document.createElement('li')
         li.innerText = sensor;
         console.log(sensor);
-        ul.appendChild(li)
+        ul.appendChild(li);
     }
 
 
@@ -92,16 +99,16 @@ const displayDetails = data => {
                     <img src="${data.image}" class="" alt="...">
                 </div>
 
-                <div class="col-md-8 d-flex justify-content-center">
-                    <div class="card-body">
+                <div class="col-md-8 py-2">
+                    <div class="displayCard">
                         <h5 class="card-title">${data.name}</h5>
-                        <h5>${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5>
+                        <h5>${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5> <br>
                         
                         <h1>Main Features</h1>
-                        <h5>storage:${data.mainFeatures.storage} </h5>
-                        <h5>displaySize:${data.mainFeatures.displaySize} </h5>
-                        <h5>chipSet:${data.mainFeatures.chipSet} </h5>
-                        <h5>memory:${data.mainFeatures.memory} </h5>
+                        <h5><span class = "fw-bold">storage</span>: ${data.mainFeatures.storage} </h5>
+                        <h5><span class = "fw-bold">displaySize</span>: ${data.mainFeatures.displaySize} </h5> 
+                        <h5><span class = "fw-bold">chipSet</span>: ${data.mainFeatures.chipSet} </h5>
+                        <h5><span class = "fw-bold">memory</span>: ${data.mainFeatures.memory} </h5>
                         <div class="dropdown py-2">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -116,29 +123,26 @@ const displayDetails = data => {
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Others
                             </button>
-                            <ul class="dropdown-menu ps-2 pe-2" aria-labelledby="dropdownMenuButton1 ">
-                                <li>WLAN : ${data.others?.WLAN ? data.others.WLAN : "Not Found"} </li>
-                                <li>BLUETOOTH : ${data.others?.Bluetooth ? data.others.Bluetooth : "Not Found"}</li>
-                                <li>GPS :${data.others?.GPS ? data.others.GPS : "Not Found"} </li>
-                                <li>NFC :${data.others?.NFC ? data.others.NFC : "Not Found"} </li>
-                                <li>Radio :${data.others?.Radio ? data.others.Radio : "Not Found"} </li>
-                                <li>USB : ${data.others?.USB ? data.others.USB : "Not Found"}</li>
-                            </ul>
+                                <ul class="dropdown-menu ps-2 pe-2" aria-labelledby="dropdownMenuButton1 ">
+                                    <li>WLAN: ${data.others?.WLAN ? data.others.WLAN : "Not Found"} </li>
+                                    <li>BLUETOOTH: ${data.others?.Bluetooth ? data.others.Bluetooth : "Not Found"}</li>
+                                    <li>GPS: ${data.others?.GPS ? data.others.GPS : "Not Found"} </li>
+                                    <li>NFC: ${data.others?.NFC ? data.others.NFC : "Not Found"} </li>
+                                    <li>Radio: ${data.others?.Radio ? data.others.Radio : "Not Found"} </li>
+                                    <li>USB: ${data.others?.USB ? data.others.USB : "Not Found"}</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
 
     
         `
+    parent.appendChild(div);
 
-    parent.appendChild(div)
 }
-
-
-
 
 
 
