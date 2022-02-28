@@ -95,16 +95,16 @@ const displayDetails = data => {
     div.innerHTML = `
             <div class="card mb-3 py-3">
                 <div class="row">
-                <div class="col-md-4 displayImg d-flex justify-content-center">
+                <div class="col-md-4 d-flex justify-content-center">
                     <img src="${data.image}" class="" alt="...">
                 </div>
 
                 <div class="col-md-8 py-2">
                     <div class="displayCard py-2">
-                        <h5 class="card-title">${data.name}</h5>
+                        <h1 class="card-title ">${data.name}</h1>
                         <h5>${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5> <br>
                         
-                        <h1>Main Features</h1>
+                        <h2>Main Features</h2>
                         <h5><span class = "fw-bold">storage</span>: ${data.mainFeatures.storage} </h5>
                         <h5><span class = "fw-bold">displaySize</span>: ${data.mainFeatures.displaySize} </h5> 
                         <h5><span class = "fw-bold">chipSet</span>: ${data.mainFeatures.chipSet} </h5>
