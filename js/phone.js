@@ -94,8 +94,8 @@ const displayDetails = data => {
     div.classList.add('col')
     div.innerHTML = `
             <div class="card mb-3 py-3">
-                <div class="row g-0">
-                <div class="col-md-4 d-flex justify-content-center">
+                <div class="row">
+                <div class="col-md-4 displayImg d-flex justify-content-center">
                     <img src="${data.image}" class="" alt="...">
                 </div>
 
@@ -131,8 +131,8 @@ const displayDetails = data => {
                                     <li>Radio: ${data.others?.Radio ? data.others.Radio : "Not Found"} </li>
                                     <li>USB: ${data.others?.USB ? data.others.USB : "Not Found"}</li>
                                 </ul>
-                            </div>
                         </div>
+                    </div>
 
                     </div>
                 </div>
