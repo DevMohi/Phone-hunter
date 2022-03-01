@@ -96,7 +96,7 @@ const displayDetails = data => {
     const div = document.createElement('div');
     div.classList.add('col')
     div.innerHTML = `
-        <div class="card mb-3 py-3 rounded border-dark">
+        <div class="card mb-3 py-3 border-3 rounded border-dark">
             <div class="row">
                 <div class="col-md-4 d-flex justify-content-center">
                     <img src="${data.image}" class="" alt="...">
