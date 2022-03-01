@@ -28,7 +28,7 @@ const displayData = data => {
     const parent = document.getElementById('displaySection');
     parent.textContent = '';
 
-// if the search input is not correct it will not show any phones 
+    // if the search input is not correct it will not show any phones 
 
     if (data.length == 0) {
         console.log('error');
@@ -49,7 +49,7 @@ const displayData = data => {
                 <h5 class="card-title text-center">${phone.phone_name}</h5>
 
                 <div class="d-flex justify-content-center border-none" >
-                    <button class="border btn-dark py-2 px-3 rounded" onclick="loadDetail('${phone.slug}')"><a class ="text-white" href="#detailsSection" style="text-decoration: none;">Details</a></button>
+                    <a class="border btn-dark py-2 px-3 rounded text-white" href="#detailsSection" style="text-decoration: none;" onclick="loadDetail('${phone.slug}')">Details</a>
                 </div>
 
                 </div>
