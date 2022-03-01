@@ -103,7 +103,7 @@ const displayDetails = data => {
                 </div>
 
                 <div class="col-md-8 py-2">
-                    <div class="displayCard py-1">
+                    <div class="detailsCard py-1">
                         <h1 class="card-title">${data.brand}</h1>
                         <h1 class="card-title">${data.name}</h1>
                         <h5 class = "fw-bold">${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5> <br>

@@ -13,13 +13,13 @@
   /* For details section  */
   /* The whold body container for details  */
 
-  .displayCard {
+  .detailsCard {
     text-align: left;
     margin-left: 30px;
     margin-right: 30px;
   }
 
-  .displayCard h1,h5{
+  .detailsCard h1,h5{
       text-align: center;      
   }
 
