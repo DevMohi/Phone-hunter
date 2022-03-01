@@ -20,9 +20,8 @@ const loadData = () => {
             .then(phone => displayData(phone.data))
     }
 
-
-
 }
+
 
 const displayData = data => {
     console.log(data)
@@ -42,13 +41,13 @@ const displayData = data => {
             div.classList.add('col')
             div.innerHTML = `
             <div class="card w-75 mx-auto pt-3 rounded border-0">
-                <img src="${phone.image}" class="card-img-top w-50 mx-auto " alt="no image found">
+                <img src="${phone.image}" class="card-img-top w-50 mx-auto "  alt="no image found">
                 <div class="card-body">
                 <h5 class="card-title text-center">${phone.brand}</h5>
                 <h5 class="card-title text-center">${phone.phone_name}</h5>
 
-                <div class="d-flex justify-content-center border-none">
-                    <button class="border btn-danger py-2 px-3 rounded" onclick="loadDetail('${phone.slug}')">Details</button>
+                <div class="d-flex justify-content-center border-none" >
+                    <button class="border btn-danger py-2 px-3 rounded" onclick="loadDetail('${phone.slug}')"><a class ="text-white" href="#detailsSection" style="text-decoration: none;">Details</a></button>
                 </div>
 
                 </div>
@@ -100,17 +99,16 @@ const displayDetails = data => {
                 </div>
 
                 <div class="col-md-8 py-2">
-                    <div class="displayCard py-2">
-                        <h1 class="card-title ">${data.name}</h1>
+                    <div class="displayCard py-1">
+                        <h1 class="card-title">${data.name}</h1>
                         <h5>${data.releaseDate ? data.releaseDate : "Release Date Not Found"}</h5> <br>
-                        
                         <h2>Main Features</h2>
                         <h5><span class = "fw-bold">storage</span>: ${data.mainFeatures.storage} </h5>
-                        <h5><span class = "fw-bold">displaySize</span>: ${data.mainFeatures.displaySize} </h5> 
+                        <h5><span class = "fw-bold ">displaySize</span>: ${data.mainFeatures.displaySize} </h5> 
                         <h5><span class = "fw-bold">chipSet</span>: ${data.mainFeatures.chipSet} </h5>
                         <h5><span class = "fw-bold">memory</span>: ${data.mainFeatures.memory} </h5>
                         <div class="dropdown py-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            <button class="btn btn-secondary  dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Sensor
                             </button>
@@ -143,9 +141,6 @@ const displayDetails = data => {
     parent.appendChild(div);
 
 }
-
-
-
 
 // For showing result 
 const resultShow = displayStyle => {
